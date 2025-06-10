@@ -37,7 +37,11 @@ export const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       { path: '', redirectTo: 'landingPage', pathMatch: 'full' },
-      {path:'landingPage',component:LandingPageComponent,title:"Landing Page"},
+      {
+        path: 'landingPage',
+        component: LandingPageComponent,
+        title: 'Landing Page',
+      },
       { path: 'login', component: LoginComponent, title: 'Login' },
       { path: 'signup', component: SignupComponent, title: 'SignUp' },
       {
@@ -65,7 +69,7 @@ export const routes: Routes = [
     ],
   },
   {
-    canActivate:[authGuard], //this is guard use when abdelrahman make apis
+    canActivate: [authGuard], //this is guard use when abdelrahman make apis
     path: 'jobseeker',
     component: JobSeekerLayout,
     children: [
@@ -92,46 +96,55 @@ export const routes: Routes = [
     ],
   },
   {
-    canActivate:[authGuard],
-    path:'employer',
-    component:EmployerlayoutComponent,
-    children:[
-      {path:'',redirectTo:'home',pathMatch:'full'},
-      {path:'home',component:HomeEmployerComponent,title:'Home-Employeer'},
-      {path:'dashboard',component:EmployerDashBoardComponent,title:'Dashboard-Employeer'},
-      {path:'details',component:DetailsEmployerComponent,title:'Details-Employeer'},
-      { path: 'post-job', component: PostJobComponent , title:'post-Job'},
-    ]
+    canActivate: [authGuard],
+    path: 'employer',
+    component: EmployerlayoutComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      {
+        path: 'home',
+        component: HomeEmployerComponent,
+        title: 'Home-Employeer',
+      },
+      {
+        path: 'dashboard',
+        component: EmployerDashBoardComponent,
+        title: 'Dashboard-Employeer',
+      },
+      {
+        path: 'details',
+        component: DetailsEmployerComponent,
+        title: 'Details-Employeer',
+      },
+      { path: 'post-job', component: PostJobComponent, title: 'post-Job' },
+    ],
   },
 
-    {
+  {
     path: 'authAdmin',
     component: AuthAdminLayoutComponent,
     children: [
-      { path: '', redirectTo: 'login', pathMatch:'full'},
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
         path: 'login',
         component: AdminLoginComponent,
         title: 'Login-Admin',
       },
-    ]
+    ],
   },
   {
     path: 'admin',
-    component:AdminLayoutComponent,
+    component: AdminLayoutComponent,
     children: [
-      {path:'',redirectTo:'home',pathMatch:'full'},
-      { path: 'home', 
-        component: HomeAdminComponent,
-        title:'Admin Home',
-       },
-      { path: 'details/:type', 
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeAdminComponent, title: 'Admin Home' },
+      {
+        path: 'details/:type',
         component: DetailsAdminComponent,
-        title: 'details'
-       },
-    ]
+        title: 'details',
+      },
+    ],
   },
-  
-  { path: '**', component: NotfoundComponent }
 
+  { path: '**', component: NotfoundComponent },
 ];
